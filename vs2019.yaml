@@ -1,0 +1,20 @@
+---
+  name: "Visual Studio 2019"
+  shortname: "vscommunity2019"
+  url: "https://aka.ms/vs/16/release/vs_community.exe"
+  programs:
+    program1: 
+      name: "Visual Studio 2019"
+      icon:
+        location: "https://visualstudio.microsoft.com/wp-content/uploads/2019/06/BrandVisualStudioWin2019-3.svg"
+        link: true  
+    program2:
+      name: "Visual Studio Installer"
+      icon:
+        location: "http://download1653.mediafire.com/dpauqyn3anvg/7m7kcjmv16lis5d/vsinstaller.png"
+        link: true
+    program3:
+      name: "Blend for Visual Studio 2019"
+      icon:
+        location: "https://download843.mediafire.com/5hmvrop5blkg/pejypr3nxp0kwu6/blend.png"
+        link: true
