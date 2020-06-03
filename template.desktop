@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name={{NAME}}
+#Comment=Code Editing. Redefined.
+#GenericName=Text Editor
+Exec=/home/victor/bin/winmin-run.py "{{VM}}" "{{NAME}}" "{{PROGRAM}}" %U
+Icon={{ICON}}
+Type=Application
+StartupNotify=true
+#Categories=Utility;TextEditor;Development;IDE;
+#MimeType=text/plain;inode/directory;
+#Keywords=vs;visual;code;
+
