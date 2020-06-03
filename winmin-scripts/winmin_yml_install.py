@@ -6,20 +6,21 @@ import urllib.request
 
 
 def installdesk(data):
+  home=os.environ['HOME']
   for program in data["Programs"]:
     name = program["Name"]
     shortname = "winmin-"+str.lower(name).replace(" ","-")
     if program["Icon"]["Link"]:
       iconurl = program["Icon"]["Location"]
       iconname = "winmin-"+str.lower(iconurl.split("/")[-1]).replace(" ","-")
-      urllib.request.urlretrieve(iconurl, '/usr/share/pixmaps/{}'.format(iconname))
-      icon = "/usr/share/pixmaps/{}".format(iconname)
+      urllib.request.urlretrieve(iconurl, '{}/.local/share/pixmaps/{}'.format(home,iconname))
+      icon = "{}/.local/share/pixmaps/{}".format(home,iconname)
     else:
       icon = program["Icon"]["Location"]
     print("shortname: {}".format(shortname))
 
     template = open("/usr/share/winmin/template.desktop","rt")
-    out = open("/usr/share/applications/{}.desktop".format(shortname), 'wt')
+    out = open("{}/.local/share/applications/{}.desktop".format(home,shortname), 'wt')
     for line in template:
       out.write(line.replace("{{NAME}}",name).replace("{{PROGRAM}}",name).replace("{{VM}}","winmin-"+data["Id"]).replace("{{ICON}}",icon))
 

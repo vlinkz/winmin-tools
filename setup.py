@@ -21,6 +21,6 @@ setup(
             'winmin-run = winmin_run:main',  
             'winmin-install = winmin_install:main',
             'winmin-yml-install = winmin_yml_install:main',                
-        ],              
+        ],
     },
 )
