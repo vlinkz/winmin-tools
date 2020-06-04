@@ -2,7 +2,7 @@
 Name={{NAME}}
 #Comment=Code Editing. Redefined.
 #GenericName=Text Editor
-Exec=/home/victor/bin/winmin-run.py "{{VM}}" "{{NAME}}" "{{PROGRAM}}" %U
+Exec=winmin-run "{{VM}}" "{{NAME}}" "{{PROGRAM}}" %U
 Icon={{ICON}}
 Type=Application
 StartupNotify=true

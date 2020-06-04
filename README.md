@@ -20,6 +20,8 @@ $ ninja -C build install
 - python3-magic
 - python-is-python3
 - libvirt-clients
+- libvirt-daemon-system
+- virtinst
 - samba
 - [winmin-viewer](https://github.com/vlinkz/winmin-viewer)
 
@@ -43,10 +45,15 @@ In order to transfer files between the host and guest, a samba server must be se
   path = /
   browseable = yes
   read only = no
-  guest ok = yes
-  force user = your_username
 ```
-After changing the samba config, restart the samba service.
+
+After changing the samba config, add an smb account for your user.
+```
+$ sudo smbpasswd -a $USER
+```
+
+Then restart the samba service.
+
 ```
 $ sudo systemctl restart smbd
 ```

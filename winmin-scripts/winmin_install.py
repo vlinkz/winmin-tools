@@ -3,6 +3,7 @@ import os,sys,subprocess
 import argparse
 import time
 import magic
+import socket
 
 def createvm(vm):
 
@@ -73,7 +74,7 @@ def userinstall(site,vm,pts):
     time.sleep(0.5) #wait for shell to start
     p.write("dir C:\\ \r") #Idk why but it works after buffering a command
     time.sleep(1)
-    p.write("    startps microsoft-edge:{} \r".format(site)) #site = https://office.com
+    p.write("    startps microsoft-edge:{} \r".format(site))
     time.sleep(0.5)
     p.write("\r\n\r")
   time.sleep(2)
@@ -110,22 +111,15 @@ def main():
     file="\\\\{}\\winmin".format(ip)+file.replace("/","\\")
   
   shortname=args.shortname
-  #shortname=str.lower(name).strip(" ")
-  #if len(args.program) > 0:
-  #program=args.program
-  #else:
-  #  program=name
   vm="winmin-{}".format(shortname)
 
 
   pts = createvm(vm)
-  #pts = subprocess.check_output("virsh ttyconsole winmin-VS2k19",shell=True).decode('UTF-8').strip('\n\n')
   time.sleep(1)
   if args.web:
     userinstall(args.input,vm,pts)
   else:
     installapp(file,vm,pts)
-  #setupdesktop(name,program)
 
 if __name__ == "__main__":
   main();

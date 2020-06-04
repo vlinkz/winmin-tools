@@ -23,6 +23,7 @@ def startup(vm,program,arg,name,save):
   with open(pts, 'w') as p:
     p.write("vm\r") #In case logged out in previous session
     p.write("\r")
+    time.sleep(0.5)
     if len(arg) >= 1:
       p.write('startps "{}" "{}"\r'.format(program,arg))
     else:
@@ -33,16 +34,16 @@ def startup(vm,program,arg,name,save):
   #time.sleep(2)
   subprocess.call('winmin-viewer "{}" "{}"'.format(name,sock),shell=True)
 
-  end(vm)
+  end(vm,save)
 
-def end(vm):
+def end(vm,save):
   subprocess.call("virsh send-key {} KEY_LEFTALT KEY_F".format(vm),shell=True)
   subprocess.call("virsh send-key {} KEY_X".format(vm),shell=True)
   time.sleep(0.5)
   subprocess.call("virsh send-key {} KEY_LEFTALT KEY_F4".format(vm),shell=True)
   time.sleep(1)
 
-  if True: #save:
+  if save:
     subprocess.call("virsh managedsave {}".format(vm),shell=True)
   else:
     subprocess.call("virsh destroy {}".format(vm),shell=True)

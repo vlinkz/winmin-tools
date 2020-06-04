@@ -13,6 +13,8 @@ def installdesk(data):
     if program["Icon"]["Link"]:
       iconurl = program["Icon"]["Location"]
       iconname = "winmin-"+str.lower(iconurl.split("/")[-1]).replace(" ","-")
+      if not os.path.exists("{}/.local/share/pixmaps/".format(home)):
+        os.mkdir("{}/.local/share/pixmaps/".format(home))
       urllib.request.urlretrieve(iconurl, '{}/.local/share/pixmaps/{}'.format(home,iconname))
       icon = "{}/.local/share/pixmaps/{}".format(home,iconname)
     else:
