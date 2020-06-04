@@ -18,6 +18,7 @@ $ ninja -C build install
 
 - python3
 - python3-magic
+- python-is-python3
 - libvirt-clients
 - samba
 - [winmin-viewer](https://github.com/vlinkz/winmin-viewer)
